@@ -1,3 +1,40 @@
+# 📦 Maintained Fork Notice / メンテナンス継続フォークのお知らせ
+
+> **English**: The original repository ([thematrixdev/home-assistant-sesame-lock-jp](https://github.com/thematrixdev/home-assistant-sesame-lock-jp)) was archived on 2024-12-24 and is now read-only.
+> This fork keeps the integration working with modern Home Assistant releases.
+>
+> **日本語**: 本家リポジトリ ([thematrixdev/home-assistant-sesame-lock-jp](https://github.com/thematrixdev/home-assistant-sesame-lock-jp)) は 2024年12月24日にアーカイブされ、読み取り専用になりました。
+> このフォークでは、最新の Home Assistant で動作するよう修正を加えています。
+
+## ✅ What's Fixed / 修正内容
+
+**English**
+
+1. **Added `version` key to `manifest.json`** — Required by Home Assistant since 2021.6. Without it, the integration is blocked from loading with the error `"The custom integration 'sesame_jp' does not have a version key in the manifest file and was blocked from loading."`
+2. **Added `unique_id` to the lock entity** — Enables UI-based area assignment, renaming, and customization. Fixes the warning `"This entity does not have a unique ID, therefore its settings cannot be managed from the UI."`
+
+**日本語**
+
+1. **`manifest.json` に `version` キーを追加** — HA 2021.6 以降は必須。無いと `"The custom integration 'sesame_jp' does not have a version key in the manifest file and was blocked from loading."` エラーで読み込みがブロックされます。
+2. **ロックエンティティに `unique_id` を追加** — UIからエリア割当・名前変更・カスタマイズが可能になります。「このエンティティにはユニークなIDがないため、UIから設定を管理構成できません」という警告が解消されます。
+
+## 🔌 Tested Devices / 動作確認済みデバイス
+
+- **SESAME 5** ✅ (Home Assistant 2026.4 / Docker)
+- SESAME 3 / 4 — original integration already supported these; no regression expected
+
+> The CANDY HOUSE Web API v3 endpoint (`app.candyhouse.co/api/sesame2/{uuid}`) is unified across SESAME 3, 4, and 5, so the same integration works for all generations.
+>
+> CANDY HOUSE Web API v3 (`app.candyhouse.co/api/sesame2/{uuid}`) は SESAME 3 / 4 / 5 で共通のため、世代を問わず動作します。
+
+## 📥 Installation via HACS (Custom Repository) / HACSによるインストール
+
+**English**
+
+1. In Home Assistant, open **HACS** → **Integrations** → the `⋮` menu (top right) → **Custom repositories**
+2. Add this repository URL:
+
+
 # Sesame-Lock JP-Version Home-Assistant Custom-Component
 
 If you have purchased your Sesame-Lock outside Japan, please use this:
@@ -129,3 +166,18 @@ lock:
 ## Thanks
 - Home Assistant community on Discord https://www.home-assistant.io/help/
 - Google and Stackoverflow
+
+
+3. カテゴリ：**統合**
+4. **追加**をクリック後、HACS内で「Sesame Smart Lock JP」を検索してインストール
+5. Home Assistant を再起動
+6. `configuration.yaml` に設定を追記（下記の本家READMEを参照）
+
+## 🙏 Credits / クレジット
+
+- Original integration by [@thematrixdev](https://github.com/thematrixdev) — Thank you for the great work!
+- CANDY HOUSE Web API documentation: https://doc.candyhouse.co/
+
+---
+
+# Original README Below / 以下は本家READMEの内容
