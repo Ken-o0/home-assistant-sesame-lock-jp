@@ -80,6 +80,7 @@ class SesameJPDevice(LockEntity):
     ) -> None:
         self._name: str = name
         self._uuid: str = uuid
+        self._attr_unique_id = f"sesame_jp_{uuid}"
         self._api_key: str = api_key
         self._secret_key: str = secret_key
         self._status_refresh_rate: int = status_refresh_rate
